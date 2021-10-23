@@ -3,6 +3,7 @@ package ir.maktab;
 import ir.maktab.model.Employee;
 import ir.maktab.service.EmployeeService;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static EmployeeService employeeService;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         employeeService = new EmployeeService();
         int choiceNumber;
         do {
@@ -37,6 +38,6 @@ public class Main {
     }
 
     private static void viewEmployeeInfoLastFiveYears() {
-        List<Employee> employeeList = employeeService.getAll();
+        List<Employee> employeeList = employeeService.getAllFiveLastYears();
     }
 }
