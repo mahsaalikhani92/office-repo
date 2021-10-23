@@ -18,7 +18,7 @@ public class Main {
         int choiceNumber;
         do {
             System.out.println("***Management Menu***");
-            System.out.println("1. Employee salary reports\n2. Exit");
+            System.out.println("1. Employee information for the last five years\n2. Exit");
             String choice;
             do {
                 choice = scanner.next();
@@ -26,7 +26,7 @@ public class Main {
             choiceNumber = Integer.parseInt(choice);
             switch (choiceNumber) {
                 case 1:
-                    viewEmployeeSalaryReport();
+                    viewEmployeeInfoLastFiveYears();
                     break;
                 case 2:
                     break;
@@ -36,7 +36,7 @@ public class Main {
         } while (choiceNumber != 2);
     }
 
-    private static void viewEmployeeSalaryReport() {
-        List<Employee> employee = employeeService.getAll();
+    private static void viewEmployeeInfoLastFiveYears() {
+        List<Employee> employeeList = employeeService.getAll();
     }
 }
