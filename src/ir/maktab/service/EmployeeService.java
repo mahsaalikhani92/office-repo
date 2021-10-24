@@ -4,9 +4,7 @@ import ir.maktab.model.Employee;
 import ir.maktab.repository.EmployeeDao;
 
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 /**
@@ -25,7 +23,7 @@ public class EmployeeService {
         Comparator<Employee> hiredDateComparator = new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                int cmpResult = o1.getHiredDate().compareTo(o2.getHiredDate());
+                int cmpResult = Integer.compare(o1.getHiredYear(), o2.getHiredYear());
                 if(cmpResult != 0){
                     return cmpResult * -1;
                 }
