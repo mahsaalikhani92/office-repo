@@ -26,7 +26,7 @@ public class EmployeeDao extends BaseDao{
                 "from person " +
                 "inner join employee" +
                 "on employee.person_id = person.id" +
-                "where employee.hired_date < '1400-01-01' and employee.hired_date >= '1395-01-01'";
+                "where employee.hired_date < '1400' and employee.hired_date >= '1395'";
         ResultSet resultset = statement.executeQuery(sqlQuery);
         List<Employee> employeeList = new ArrayList<>();
         while (resultset.next()){
@@ -36,7 +36,7 @@ public class EmployeeDao extends BaseDao{
             employee.setLastName(resultset.getString("l_name"));
             employee.setPersonalCode(resultset.getString("personal_code"));
             employee.setSalary(resultset.getInt("salary"));
-            employee.setHiredDate(resultset.getDate("hired_date"));
+            employee.setHiredYear(resultset.getInt("hired_year"));
             employee.setPersonId(resultset.getInt("person_id"));
             employeeList.add(employee);
         }
