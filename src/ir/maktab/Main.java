@@ -50,11 +50,30 @@ public class Main {
         }
         printRowTable();
         printHiredYear(hiredYearSet);
-        //printSalaryRange(salaryList);
+        printSalaryRange(salaryList);
         //printPersonalCode(personalCodeList);
     }
 
 
+
+    private static void printSalaryRange(List<Integer> salaryList) {
+        Map<String, List<Integer>> salaryMap = new HashMap<>();
+        List<Integer> firstRange = new ArrayList<>();
+        List<Integer> secondRange = new ArrayList<>();
+        List<Integer> thirdRange = new ArrayList<>();
+        for (Integer salary: salaryList) {
+            if(salary >= 1 && salary < 5){
+                firstRange.add(salary);
+                salaryMap.put("1-5", firstRange);
+            }else if(salary >= 6 && salary < 10){
+                secondRange.add(salary);
+                salaryMap.put("5-10", secondRange);
+            }else if(salary >= 10){
+                thirdRange.add(salary);
+                salaryMap.put("Higher than 10", thirdRange);
+            }
+        }
+    }
 
     private static void printHiredYear(Set<Integer> hiredYearSet) {
         for (Integer year: hiredYearSet) {
