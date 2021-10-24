@@ -38,13 +38,36 @@ public class Main {
 
     private static void viewEmployeeInfoLastFiveYears() throws SQLException {
         List<Employee> employeeList = employeeService.getAllFiveLastYears();
+        Set<Integer> hiredYearSet = new HashSet<>();
+        List<Integer> salaryList = new ArrayList<>();
+        List<String> personalCodeList = new ArrayList<>();
+        List<String> fullNameList = new ArrayList<>();
         for (Employee item: employeeList) {
+            hiredYearSet.add(item.getHiredYear());
+            salaryList.add(item.getSalary());
+            personalCodeList.add(item.getPersonalCode());
+            fullNameList.add(item.getFirstName() + item.getLastName());
+        }
+        printRowTable();
+        printHiredYear(hiredYearSet);
+        //printSalaryRange(salaryList);
+        //printPersonalCode(personalCodeList);
+    }
 
+
+
+    private static void printHiredYear(Set<Integer> hiredYearSet) {
+        for (Integer year: hiredYearSet) {
+            String yearStr = Integer.toString(year);
+            System.out.println(yearStr.substring(2));
         }
     }
 
     private static void printRowTable(){
         Set<Integer> rowSet = new HashSet<>();
         Collections.addAll(rowSet, 1, 2, 3, 4, 5);
+        for (Integer number: rowSet) {
+            System.out.println(number);
+        }
     }
 }
