@@ -10,7 +10,7 @@ public class Employee extends Person implements Comparable<Employee> {
 
     private String personalCode;
     private int salary;
-    private Date hiredDate;
+    private int hiredYear;
     private int personId;
 
     public String getPersonalCode() {
@@ -29,12 +29,12 @@ public class Employee extends Person implements Comparable<Employee> {
         this.salary = salary;
     }
 
-    public Date getHiredDate() {
-        return hiredDate;
+    public int getHiredYear() {
+        return hiredYear;
     }
 
-    public void setHiredDate(Date hiredDate) {
-        this.hiredDate = hiredDate;
+    public void setHiredYear(int hiredYear) {
+        this.hiredYear = hiredYear;
     }
 
     public int getPersonId() {
