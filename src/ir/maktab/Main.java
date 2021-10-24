@@ -51,10 +51,14 @@ public class Main {
         printRowTable();
         printHiredYear(hiredYearSet);
         printSalaryRange(salaryList);
-        //printPersonalCode(personalCodeList);
+        printPersonalCode(personalCodeList);
     }
 
-
+    private static void printPersonalCode(List<String> personalCodeList) {
+        for (String code: personalCodeList) {
+            System.out.println(code);
+        }
+    }
 
     private static void printSalaryRange(List<Integer> salaryList) {
         Map<String, List<Integer>> salaryMap = new HashMap<>();
