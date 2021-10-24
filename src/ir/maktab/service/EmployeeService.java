@@ -4,7 +4,10 @@ import ir.maktab.model.Employee;
 import ir.maktab.repository.EmployeeDao;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * @author Mahsa Alikhani m-58
@@ -16,8 +19,20 @@ public class EmployeeService {
         employeeDao = new EmployeeDao();
     }
 
-    public List<Employee> getAllFiveLastYears() {
+    public List<Employee> getAllFiveLastYears() throws SQLException {
         List<Employee> employeeList = employeeDao.findAllFiveLastYears();
+
+        Comparator<Employee> hiredDateComparator = new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                int cmpResult = o1.getHiredDate().compareTo(o2.getHiredDate());
+                if(cmpResult != 0){
+                    return cmpResult * -1;
+                }
+                return o1.compareTo(o2);
+            }
+        };
+        employeeList.sort(hiredDateComparator);
         return employeeList;
     }
 }
