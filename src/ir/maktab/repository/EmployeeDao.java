@@ -1,6 +1,5 @@
 package ir.maktab.repository;
 
-import com.mysql.cj.protocol.Resultset;
 import ir.maktab.model.Employee;
 
 import java.sql.Connection;
@@ -42,4 +41,5 @@ public class EmployeeDao extends BaseDao{
         }
         return employeeList;
     }
+
 }
