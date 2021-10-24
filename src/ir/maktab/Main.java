@@ -4,8 +4,7 @@ import ir.maktab.model.Employee;
 import ir.maktab.service.EmployeeService;
 
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Mahsa Alikhani m-58
@@ -37,7 +36,15 @@ public class Main {
         } while (choiceNumber != 2);
     }
 
-    private static void viewEmployeeInfoLastFiveYears() {
+    private static void viewEmployeeInfoLastFiveYears() throws SQLException {
         List<Employee> employeeList = employeeService.getAllFiveLastYears();
+        for (Employee item: employeeList) {
+
+        }
+    }
+
+    private static void printRowTable(){
+        Set<Integer> rowSet = new HashSet<>();
+        Collections.addAll(rowSet, 1, 2, 3, 4, 5);
     }
 }
