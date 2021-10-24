@@ -1,11 +1,12 @@
 package ir.maktab.model;
 
 import java.sql.Date;
+import java.util.Comparator;
 
 /**
  * @author Mahsa Alikhani m-58
  */
-public class Employee extends Person{
+public class Employee extends Person implements Comparable<Employee> {
 
     private String personalCode;
     private int salary;
@@ -42,5 +43,11 @@ public class Employee extends Person{
 
     public void setPersonId(int personId) {
         this.personId = personId;
+    }
+
+
+    @Override
+    public int compareTo(Employee otherObject) {
+        return Integer.compare(this.getSalary(), otherObject.getSalary());
     }
 }
