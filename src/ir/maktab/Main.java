@@ -52,6 +52,13 @@ public class Main {
         printHiredYear(hiredYearSet);
         printSalaryRange(salaryList);
         printPersonalCode(personalCodeList);
+        printFullName(fullNameList);
+    }
+
+    private static void printFullName(List<String> fullNameList) {
+        for (String fullName: fullNameList) {
+            System.out.println(fullName);
+        }
     }
 
     private static void printPersonalCode(List<String> personalCodeList) {
