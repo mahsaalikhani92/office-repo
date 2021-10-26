@@ -17,8 +17,8 @@ public class EmployeeService {
         employeeDao = new EmployeeDao();
     }
 
-    public List<Employee> getAllFiveLastYears() throws SQLException {
-        List<Employee> employeeList = employeeDao.findAllFiveLastYears();
+    public List<Employee> getAllFiveLastYears(int currentYear) throws SQLException {
+        List<Employee> employeeList = employeeDao.findAllFiveLastYears(currentYear);
 
         Comparator<Employee> hiredDateComparator = new Comparator<Employee>() {
             @Override

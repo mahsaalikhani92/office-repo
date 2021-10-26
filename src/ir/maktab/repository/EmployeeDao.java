@@ -19,13 +19,13 @@ public class EmployeeDao extends BaseDao{
         connection = getConnection();
     }
 
-    public List<Employee> findAllFiveLastYears() throws SQLException {
+    public List<Employee> findAllFiveLastYears(int currentYear) throws SQLException {
         Statement statement = connection.createStatement();
         String sqlQuery = "select employee.*, person.f_name, person.l_name" +
                 " from person " +
                 "inner join employee" +
                 " on employee.person_id = person.id" +
-                " where employee.hired_year <= '"+1400+"' and employee.hired_year >= '"+1395+"'";
+                " where employee.hired_year <= '"+currentYear+"' and employee.hired_year >= '"+(currentYear-5)+"'";
         ResultSet resultset = statement.executeQuery(sqlQuery);
         List<Employee> employeeList = new ArrayList<>();
         while (resultset.next()){
