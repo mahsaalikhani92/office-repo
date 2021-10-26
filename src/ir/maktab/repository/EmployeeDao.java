@@ -22,10 +22,10 @@ public class EmployeeDao extends BaseDao{
     public List<Employee> findAllFiveLastYears() throws SQLException {
         Statement statement = connection.createStatement();
         String sqlQuery = "select employee.*, person.f_name, person.l_name" +
-                "from person " +
+                " from person " +
                 "inner join employee" +
-                "on employee.person_id = person.id" +
-                "where employee.hired_date < '1400' and employee.hired_date >= '1395'";
+                " on employee.person_id = person.id" +
+                " where employee.hired_year <= '"+1400+"' and employee.hired_year >= '"+1395+"'";
         ResultSet resultset = statement.executeQuery(sqlQuery);
         List<Employee> employeeList = new ArrayList<>();
         while (resultset.next()){
