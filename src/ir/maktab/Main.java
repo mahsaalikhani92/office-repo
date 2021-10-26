@@ -73,13 +73,13 @@ public class Main {
         List<Integer> secondRange = new ArrayList<>();
         List<Integer> thirdRange = new ArrayList<>();
         for (Integer salary: salaryList) {
-            if(salary >= 1 && salary < 5){
+            if(salary >= 1000000 && salary < 5000000){
                 firstRange.add(salary);
                 salaryMap.put("1-5", firstRange);
-            }else if(salary >= 6 && salary < 10){
+            }else if(salary >= 6000000 && salary < 10000000){
                 secondRange.add(salary);
                 salaryMap.put("5-10", secondRange);
-            }else if(salary >= 10){
+            }else if(salary >= 10000000){
                 thirdRange.add(salary);
                 salaryMap.put("Higher than 10", thirdRange);
             }
