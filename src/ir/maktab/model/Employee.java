@@ -45,7 +45,6 @@ public class Employee extends Person implements Comparable<Employee> {
         this.personId = personId;
     }
 
-
     @Override
     public int compareTo(Employee otherObject) {
         return Integer.compare(this.getSalary(), otherObject.getSalary());
